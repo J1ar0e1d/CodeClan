@@ -1,0 +1,98 @@
+body {
+	font-family: Arial, sans-serif;
+	margin: 0;
+	padding: 0;
+}
+h1 {
+	margin-top: 0;
+	padding: 1em;
+	background-color: #2c3e50;
+	color: #fff;
+}
+.container {
+	max-width: 800px;
+	margin: 0 auto;
+	padding: 2em;
+}
+.description {
+	margin-bottom: 2em;
+	border-bottom: 1px solid #ccc;
+	padding-bottom: 1em;
+}
+.examples {
+	margin-bottom: 2em;
+	padding: 1em;
+	background-color: #f2f2f2;
+	border-radius: 5px;
+}
+table {
+	border-collapse: collapse;
+	width: 100%;
+}
+th,
+td {
+	padding: 0.5em;
+	border: 1px solid #ccc;
+	text-align: left;
+}
+th {
+	background-color: #f2f2f2;
+}
+.success {
+	color: green;
+}
+.failure {
+	color: red;
+}
+
+button {
+	background-color: #4caf50;
+	border: none;
+	color: white;
+	padding: 0.5rem 1rem;
+	text-align: center;
+	text-decoration: none;
+	display: inline-block;
+	font-size: 12px;
+	cursor: pointer;
+	border-radius: 4px;
+}
+
+button:hover {
+	background-color: #3e8e41;
+}
+
+select {
+	padding: 10px;
+	border-radius: 5px;
+	border: none;
+	background-color: #f2f2f2;
+	font-size: 16px;
+	color: #333;
+	box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+select::-ms-expand {
+	display: none;
+}
+
+select::after {
+	content: "\25BC";
+	position: absolute;
+	top: 50%;
+	right: 10px;
+	transform: translateY(-50%);
+	font-size: 20px;
+	color: #666;
+	pointer-events: none;
+}
+
+select option {
+	padding: 10px;
+	background-color: #fff;
+	color: #333;
+}
+
+select option:hover {
+	background-color: #e6e6e6;
+}

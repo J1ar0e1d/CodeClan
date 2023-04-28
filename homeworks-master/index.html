@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title>Tests</title>
+		<link rel="stylesheet" href="styles.css" />
+	</head>
+	<body>
+		<h1>Function Exercise</h1>
+
+		<div class="container">
+			<select id="exercise-select"></select>
+			<div class="description">
+				<h2 id="name"></h2>
+				<p id="description"></p>
+				<div class="examples">
+					<h3>Examples:</h3>
+					<ul id="examples-list"></ul>
+				</div>
+			</div>
+			<table>
+				<thead>
+					<tr>
+						<th>Description</th>
+						<th>Expected Result</th>
+						<th>Actual Result</th>
+						<th>Passed</th>
+					</tr>
+				</thead>
+				<tbody id="test-table"></tbody>
+			</table>
+		</div>
+
+		<script src="./functions/makeOutWord.js"></script>
+		<script src="./functions/nonStart.js"></script>
+		<script src="./functions/endsLy.js"></script>
+		<script src="./functions/makeAbba.js"></script>
+		<script src="./functions/frontTimes.js"></script>
+
+		<script type="text/JavaScript" src="utils/exercises.js"></script>
+		<script src="utils/index.js"></script>
+	</body>
+</html>
