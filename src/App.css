@@ -6,8 +6,9 @@
 
 .container {
   background-color: #000;
-  height: 100vh;
-  width: 100vw;
+  height: 600px;
+  width: 90vw;
+  margin: -620px 0px 0px 150px; 
   display: flex;
   align-items: center;
   justify-content: center;
@@ -34,7 +35,7 @@
   height: 20px; 
 }
 
-.food {
+ .food {
   animation-name: food;
   animation-duration: 5s;
   animation-timing-function: ease-in-out;
@@ -42,13 +43,7 @@
   background-color: #B60000;
   border-radius: 100%;
   border: 2px solid #FFFC1B;
-  /* FFFC1B */
-  /* background-color: #FA0101;
-  border-radius: 100%;
-  transform: background-color #1FAAAC;
-  transition-property: background, color; 
-  transition-duration: 3.5s; 
-  transition-timing-function: ease-out; */
+  
 }
 
 @keyframes food {
@@ -62,12 +57,12 @@
 
 66% {
   transform: rotateX(180deg);
-  /* transform: background-color #1FAAAC;  */
+  
 }
 
 100% {
   transform: rotateX(360deg);
-  /* transform: background-color #1BE100; */
+  
 }
 
 

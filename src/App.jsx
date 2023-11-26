@@ -1,22 +1,21 @@
 import { useState, React, useEffect } from "react";
 import "./App.css";
-import { TfiTwitterAlt } from "react-icons/tfi";
-import {styled, ThemeProvider } from "styled-components";
+
+import {styled, ThemeProvider, keyframes, createGlobalStyle } from "styled-components";
+import Header from "./Header";
+import Sidebar from "./sidebar";
+// import ScoreBoard from "./components/scoreBoard";
  
 
 
 function App() {
+  
+  
+  
   let totalGridSize = 20;
 
-  const AppleFood = styled.span`
-  background-color: green;
-  color: green;
-  `
-  const theme = {
-    bg: "#fff"
-  }
-
-  let initialSnakePosition = [
+  
+    let initialSnakePosition = [
     { x: totalGridSize / 2, y: totalGridSize / 2 },
     { x: totalGridSize / 2 + 1, y: totalGridSize / 2 },
     { x: totalGridSize / 2 + 2, y: totalGridSize / 2 },
@@ -27,43 +26,136 @@ function App() {
 
   const [snake, setSnake] = useState(initialSnakePosition);
   const [direction, setDirection] = useState("LEFT");
+  
+  const [theme, setTheme] = useState('light')
+ 
+    function ToggleTheme () {
+        setTheme(theme === 'light' ? 'dark' : 'light');
+    }
+  
+  
+    const light = {
+    backgroundColor: '#fff',
+      
+      
+  }
+  
+  const ThemeButton = {
 
+    width: '300px',
+    height: '20px',
+    borderRadius: '30%' 
+  }
+  
+  const cellStyle = {
+    backgroundColor: '#fff',
+    width: '20px',
+    height: '20px' 
+      } 
+
+  const container = {
+    backgroundColor: '#000',
+    height: '100vh',
+    width: '100vw',
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center',
+    flexDirection: 'column'
+  }
+  
+  const scoreStyle = {
+    color: '#fff'
+ }
+ 
+ 
+ 
+ 
+
+const dark = {
+    backgroundColor: '#2C2C2C'
+  }
+
+  const snakeStyle = {
+
+    backgroundColor: 'limegreen',
+    color: '#fff'
+  }
+    
+  const board = {
+    display: 'grid',
+    gridTemplateColumns: 'repeat(20,20px)',
+    gridTemplateRows: 'repeat(20,20px)',
+    gap: '1px',
+    width: 'maxContent'
+    }
+  
+  const snakeHeadStyle = {
+
+    backgroundColor: '#000',
+    borderRadius: '30%'
+  }
+  
+  
+
+  
+  
+  const FoodStyle = {
+
+    animationName: 'food',
+    transformationDuration: '5s',
+    transformationTimingFunction: 'ease-in-out',
+    transformIterationCount: '10',
+    backgroundColor: '#B60000',
+    borderRadius: '100%',
+    border: '2px solid #FFFC1B'
+      // animation: ${foodAnimation} 2s linear;
+  }
+  
+
+  
+
+
+ 
+ 
+  
+  
   function renderBoard() {
     let CellArray = [];
     for (let row = 0; row < totalGridSize; row++) {
       for (let col = 0; col < totalGridSize; col++) {
-        let className = "cell";
+        
+     let className = 'cell';           
+      
+        
 
-        let isFood = food.x === row && food.y === col;
-
-        let isSnake = snake.some((ele) => ele.x === row && ele.y === col);
-
-        let isSnakeHead = snake[0].x === row && snake[0].y === col;
-
-
+          
+   
+    
+    let isSnakeHead = snake[0].x === row && snake[0].y === col;
+    let isSnake = snake.some((ele) => ele.x === row && ele.y === col);
+    let isFood = food.x === row && food.y === col;
+    
+  
+         
         if (isFood) {
           
-          
-            // className =  <AppleFood>
-              
-            //   {className + " food"} 
-            // </AppleFood>
-   
-            className = className + " food";
-          
-
-          
+          className = className + " food";
+             
         }
 
         if (isSnake) {
           className = className + " snake";
+          
+
         }
 
         if (isSnakeHead) {
           className = className + " snakeHead";
+          
         }
-
-        let cell = <div className={className} key={`${row} - ${col}`}></div>;
+         
+        
+        let cell = <div  className={className} key={`${row} - ${col}`}></div>;
         CellArray.push(cell);
       }
     }
@@ -167,17 +259,37 @@ function App() {
     return () => clearInterval("keydown", updateDirection);
   });
 
+
+  
+
+
+
+
   return (
     <>
-    <ThemeProvider theme={theme}>
-
+    
+   <ThemeProvider theme={theme === 'light' ? dark : light}>
+      {/* <button  onClick={ToggleTheme}>
+        {theme === 'light' ? 'dark' : 'light'}
+      </button> */}
+    
+      <Header>
+      
+      
+      </Header>
+    
+    
+      
+      <Sidebar/>
       <div className="container">
         <div className="score">
           score : <span>{score}</span>
         </div>
         <div className="board">{renderBoard()}</div>
       </div>
-    </ThemeProvider>
+    
+      {/* <ScoreBoard/>  */}
+    </ThemeProvider>           
     </>
   );
 }
